@@ -1,4 +1,4 @@
-function display_static(aPAR, pPAR, flow, time, xpos)
+function display_static(aPAR, pPAR, flow, time, xpos, P)
 	
 %	h = figure(1)
 %	set(h, 'Position', [0 0 400, 800])

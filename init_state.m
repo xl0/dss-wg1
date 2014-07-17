@@ -1,10 +1,15 @@
 function M = init_state()
-	% row 1 - pPAR
-	% row 2 - aPAR
-	% row 3 - flow
-	M = zeros(3, 100);
+	M = struct()
 
-	M(1, 50) = 100;
-	M(2, 60) = 100;
+	M.aPAR = zeros(1, 100)
+	M.pPAR = zeros(1, 100)
+	M.flow = zeros(1, 100)
+
+	M.cyto_aPAR = 0
+	M.cyto_pPAR = 0
+
+
+	M.aPAR(97) = 100;
+	M.pPAR(3) = 100;
 
 end

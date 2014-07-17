@@ -1,4 +1,4 @@
-function display_dynamic(aPAR, pPAR, flow, time, xpos)
+function display_dynamic(aPAR, pPAR, flow, time, xpos, P)
 
 	assert(isequal(size(aPAR), size(pPAR)))
 
@@ -12,9 +12,9 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos)
 	h = figure(1)
 	set(h, 'Position', [0 0 1024 768])
 
-	aPAR_ylim = [min(min(aPAR)), max(max(aPAR))];
-	pPAR_ylim = [min(min(pPAR)), max(max(pPAR))];
-	flow_ylim = [min(min(flow)), max(max(flow))];
+	aPAR_ylim = [min(min(aPAR)), max(max(aPAR))]
+	pPAR_ylim = [min(min(pPAR)), max(max(pPAR))]
+	flow_ylim = [min(min(flow)), max(max(flow))]
 
 	all_xlim = [min(xpos), max(xpos)];
 
@@ -31,6 +31,7 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos)
 		xlim(all_xlim)
 		xlabel('distance(um)')
 		ylabel('aPAR concentration(A.U)')
+		title(sprintf('T = %.1f', n * P.delta_t))
 	
 		subplot(3, 1, 2)
 		plot(xpos, pPAR(n,:), 'go')
@@ -39,12 +40,12 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos)
 		xlabel('distance(um)')
 		ylabel('pPAR concentration(A.U)')
 
-		subplot(3, 1, 3)
-		plot(xpos, flow(n,:), 'bo')
-		ylim(flow_ylim)
-		xlim(all_xlim)
-		xlabel('distance(um)')
-		ylabel('flow (um/min)')
+%		subplot(3, 1, 3)
+%		plot(xpos, flow(n,:), 'bo')
+%		ylim(flow_ylim)
+%		xlim(all_xlim)
+%		xlabel('distance(um)')
+%		ylabel('flow (um/min)')
 
 		refresh(h)
 		drawnow
@@ -62,7 +63,7 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos)
 %		end
 %		imwrite(A, map, 'movie.gif', 'gif',  'DelayTime', 0.2, 'WriteMode','append');
 
-		pause(0.2)
+%		pause(0.2)
 		n = n + 1;
 	end
 
