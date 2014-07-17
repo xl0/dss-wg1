@@ -3,14 +3,27 @@ function display_static(aPAR, pPAR, flow, time, xpos)
 %	h = figure(1)
 %	set(h, 'Position', [0 0 400, 800])
 
+	aPAR_ylim = [floor(min(min(aPAR))), ceil(max(max(aPAR)))];
+	pPAR_ylim = [floor(min(min(pPAR))), ceil(max(max(pPAR)))];
+	flow_ylim = [min(min(flow)), max(max(flow))];
+
+
+	aPAR_cmap = zeros(aPAR_ylim(2), 3);
+	ls = linspace(0, 1, aPAR_ylim(2)  - aPAR_ylim(1))';
+
+	aPAR_cmap(aPAR_ylim(1) + 1:aPAR_ylim(2), 1) = ls;
+
+	pPAR_cmap = zeros(pPAR_ylim(2), 3);
+	ls = linspace(0, 1, pPAR_ylim(2) - pPAR_ylim(1))';
+
+	pPAR_cmap(pPAR_ylim(1) + 1:pPAR_ylim(2), 3) = ls;
 	% Red 0 - 300
-	aPAR_cmap = [linspace(0, 1, 300)', zeros(300, 1), zeros(300,1)];
+%	aPAR_cmap = [linspace(0, 1, aPAR_ylim(2))', zeros(300, 1), zeros(300,1)];
 
 	% Blue, 0 - 400
-	pPAR_cmap = [zeros(400, 1), zeros(400,1), linspace(0, 1, 400)'];
+%	pPAR_cmap = [zeros(400, 1), zeros(400,1), linspace(0, 1, 400)'];
 
 
-%	subplot(2, 1, 1)
 	h = figure(2)
 	image(xpos, time, aPAR)
 	colormap(aPAR_cmap)
@@ -18,10 +31,8 @@ function display_static(aPAR, pPAR, flow, time, xpos)
 	xlabel('distance(um)')
 	ylabel('Time(sec)')
 	title('aPAR')
+%	saveas(h, 'aPAR.png');
 
-	saveas(h, 'aPAR.png');
-
-%	subplot(2, 1, 2)
 	h = figure(3)
 	image(xpos, time, pPAR)
 	colormap(pPAR_cmap)
@@ -29,7 +40,7 @@ function display_static(aPAR, pPAR, flow, time, xpos)
 	xlabel('distance(um)')
 	ylabel('Time(sec)')
 	title('pPAR')
-	saveas(h, 'pPAR.png');
+%	saveas(h, 'pPAR.png');
 
 	h = figure(4)
 	image(xpos, time, flow, 'CDataMapping', 'scaled')
@@ -38,5 +49,5 @@ function display_static(aPAR, pPAR, flow, time, xpos)
 	xlabel('distance(um)')
 	ylabel('Time(sec)')
 	title('flow')
-	saveas(h, 'flow.png');
+%	saveas(h, 'flow.png');
 end

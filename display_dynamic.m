@@ -12,14 +12,14 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos)
 	h = figure(1)
 	set(h, 'Position', [0 0 1024 768])
 
-	aPAR_ylim = [min(min(aPAR)), max(max(aPAR))]
-	pPAR_ylim = [min(min(pPAR)), max(max(pPAR))]
-	flow_ylim = [min(min(flow)), max(max(flow))]
+	aPAR_ylim = [min(min(aPAR)), max(max(aPAR))];
+	pPAR_ylim = [min(min(pPAR)), max(max(pPAR))];
+	flow_ylim = [min(min(flow)), max(max(flow))];
 
-	all_xlim = [min(xpos), max(xpos)]
+	all_xlim = [min(xpos), max(xpos)];
 
 
-	tsteps = length(aPAR)
+	tsteps = length(aPAR);
 
 
 	n = 1
@@ -52,7 +52,7 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos)
 		%f = getframe(1)
 		%imwrite(f.cdata, 'aaaaa.png')
 
-		saveas(h, strcat('file', num2str(n), '.png'));
+%		saveas(h, strcat('file', num2str(n), '.png'));
 
 
 %		im = frame2im(getframe(h));
@@ -62,7 +62,7 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos)
 %		end
 %		imwrite(A, map, 'movie.gif', 'gif',  'DelayTime', 0.2, 'WriteMode','append');
 
-%		pause(0.2)
+		pause(0.2)
 		n = n + 1;
 	end
 

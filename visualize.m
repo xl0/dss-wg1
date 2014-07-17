@@ -5,7 +5,7 @@ close all
 
 aPAR = importdata('DATASET_SUMMERSCHOOL/aPAR.txt');
 pPAR = importdata('DATASET_SUMMERSCHOOL/pPAR.txt');
-flow = importdata('DATASET_SUMMERSCHOOL/flow-myosin-um-per-min.txt')
+flow = importdata('DATASET_SUMMERSCHOOL/flow-myosin-um-per-min.txt');
 
 
 time = importdata('DATASET_SUMMERSCHOOL/T-sec.txt');
