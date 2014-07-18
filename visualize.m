@@ -1,17 +1,21 @@
 clear all
 close all
 
-%cd 'DATASET_SUMMERSCHOOL'
+%cd 'updated_DATASET_16July14'
 
-aPAR = importdata('DATASET_SUMMERSCHOOL/aPAR.txt');
-pPAR = importdata('DATASET_SUMMERSCHOOL/pPAR.txt');
-flow = importdata('DATASET_SUMMERSCHOOL/flow-myosin-um-per-min.txt');
-
-
-time = importdata('DATASET_SUMMERSCHOOL/T-sec.txt');
-xpos = importdata('DATASET_SUMMERSCHOOL/X-um.txt');
+P = struct()
+P.delta_t = 0.1
 
 
-%display_dynamic(aPAR, pPAR, flow, time, xpos)
-display_static(aPAR, pPAR, flow, time, xpos)
+aPAR = importdata('updated_DATASET_16July14/aPAR.txt');
+pPAR = importdata('updated_DATASET_16July14/pPAR.txt');
+flow = importdata('updated_DATASET_16July14/flow-myosin-um-per-min.txt');
+
+
+time = importdata('updated_DATASET_16July14/T-sec.txt');
+xpos = importdata('updated_DATASET_16July14/X-um.txt');
+
+
+%display_dynamic(aPAR, pPAR, flow, time, xpos, P)
+display_static(aPAR, pPAR, flow, time, xpos, P)
 

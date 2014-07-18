@@ -10,11 +10,14 @@ function M = diffuse(M, P)
 				conv(M.pPAR, laplace, 'valid'), ...
 				-2 * M.pPAR(end) + M.pPAR(1) + M.pPAR(end - 1) ] ;
 
-	M.aPAR = M.aPAR + P.delta_t * P.diffusion_rate(1) * a_convolution;
+	a_coefficient = (P.diffusion_rate(1) * P.delta_t  / (P.delta_x * P.delta_x));
+	p_coefficient = (P.diffusion_rate(2) * P.delta_t  / (P.delta_x * P.delta_x));
 
-	M.pPAR = M.pPAR + P.delta_t * P.diffusion_rate(2) * p_convolution;
+	M.aPAR = M.aPAR + a_coefficient * a_convolution;
 
-%	M.aPAR = M.aPAR + P.delta_t * P.diffusion_rate(1) * conv(M.aPAR, laplace, 'valid');
+	M.pPAR = M.pPAR + p_coefficient * p_convolution;
+
+%	M.aPAR = M.aPAR + P.delta_t * P.diffusion_rate(1) * conv(M.aPAR, laplace, 'same');
 
 
 %	M.pPAR = M.pPAR + P.delta_t * P.diffusion_rate(2) * conv(M.pPAR, laplace, 'same');
