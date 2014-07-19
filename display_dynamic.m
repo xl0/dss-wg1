@@ -41,12 +41,12 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos, P)
 		xlabel('distance(um)')
 		ylabel('pPAR concentration(A.U)')
 
-%		subplot(3, 1, 3)
-%		plot(xpos, flow(n,:), 'bo')
-%		ylim(flow_ylim)
-%		xlim(all_xlim)
-%		xlabel('distance(um)')
-%		ylabel('flow (um/min)')
+		subplot(3, 1, 3)
+		plot(xpos, flow(n,:), 'bo')
+		ylim(flow_ylim)
+		xlim(all_xlim)
+		xlabel('distance(um)')
+		ylabel('flow (um/min)')
 
 		refresh(h)
 		drawnow

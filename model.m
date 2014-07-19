@@ -42,13 +42,13 @@ while (time < P.sim_time)
 
 end
 
-figure()
-plot(sum(aPAR'))
-figure()
-plot(sum(pPAR'))
-
 %figure()
-%plot(aPAR_tot)
+%plot(sum(aPAR'))
+%figure()
+%plot(sum(pPAR'))
+
+figure()
+plot(aPAR_tot)
 %figure()
 %plot(pPAR_tot)
 
@@ -56,5 +56,5 @@ plot(sum(pPAR'))
 
 %pause
 
-display_static(aPAR, pPAR, flow, [0 P.sim_time], linspace(-64, 64), P)
+%display_static(aPAR, pPAR, flow, [0 P.sim_time], linspace(-64, 64), P)
 %display_dynamic(aPAR, pPAR, flow, [0 P.sim_time], linspace(0, 100), P)
