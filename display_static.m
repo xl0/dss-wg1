@@ -1,9 +1,9 @@
-function display_static(aPAR, pPAR, flow, time, xpos, P)
+function display_static(aPAR, pPAR, flow, time, xpos)
 	
 %	h = figure(1)
 %	set(h, 'Position', [0 0 400, 800])
 
-	aPAR_ylim = [floor(min(min(aPAR))), ceil(max(max(aPAR)))]
+	aPAR_ylim = [floor(min(min(aPAR))), ceil(max(max(aPAR)))];
 	pPAR_ylim = [floor(min(min(pPAR))), ceil(max(max(pPAR)))];
 	flow_ylim = [min(min(flow)), max(max(flow))];
 
@@ -39,7 +39,7 @@ function display_static(aPAR, pPAR, flow, time, xpos, P)
 	xlabel('distance(um)')
 	ylabel('Time(sec)')
 	title('aPAR')
-%	saveas(h, 'aPAR.png');
+	saveas(h, 'aPAR.png');
 
 	h = figure(3)
 	image(xpos, time, pPAR, 'CDataMapping', 'scaled')
@@ -48,7 +48,7 @@ function display_static(aPAR, pPAR, flow, time, xpos, P)
 	xlabel('distance(um)')
 	ylabel('Time(sec)')
 	title('pPAR')
-%	saveas(h, 'pPAR.png');
+	saveas(h, 'pPAR.png');
 
 	h = figure(4)
 	image(xpos, time, flow, 'CDataMapping', 'scaled')
@@ -57,5 +57,5 @@ function display_static(aPAR, pPAR, flow, time, xpos, P)
 	xlabel('distance(um)')
 	ylabel('Time(sec)')
 	title('flow')
-%	saveas(h, 'flow.png');
+	saveas(h, 'flow.png');
 end

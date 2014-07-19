@@ -23,6 +23,7 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos, P)
 
 
 	n = 1
+	f = 1
 	while (n <= tsteps)
 		subplot(3, 1, 1)
 
@@ -31,7 +32,7 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos, P)
 		xlim(all_xlim)
 		xlabel('distance(um)')
 		ylabel('aPAR concentration(A.U)')
-		title(sprintf('T = %.1f', n * P.delta_t))
+		title(sprintf('T = %.1f', time(n) ))
 	
 		subplot(3, 1, 2)
 		plot(xpos, pPAR(n,:), 'go')
@@ -40,12 +41,12 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos, P)
 		xlabel('distance(um)')
 		ylabel('pPAR concentration(A.U)')
 
-		subplot(3, 1, 3)
-		plot(xpos, flow(n,:), 'bo')
-		ylim(flow_ylim)
-		xlim(all_xlim)
-		xlabel('distance(um)')
-		ylabel('flow (um/min)')
+%		subplot(3, 1, 3)
+%		plot(xpos, flow(n,:), 'bo')
+%		ylim(flow_ylim)
+%		xlim(all_xlim)
+%		xlabel('distance(um)')
+%		ylabel('flow (um/min)')
 
 		refresh(h)
 		drawnow
@@ -53,7 +54,7 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos, P)
 		%f = getframe(1)
 		%imwrite(f.cdata, 'aaaaa.png')
 
-%		saveas(h, strcat('file', num2str(n), '.png'));
+		saveas(h, strcat('file', num2str(f), '.png'));
 
 
 %		im = frame2im(getframe(h));
@@ -64,7 +65,8 @@ function display_dynamic(aPAR, pPAR, flow, time, xpos, P)
 %		imwrite(A, map, 'movie.gif', 'gif',  'DelayTime', 0.2, 'WriteMode','append');
 
 %		pause(0.2)
-		n = n + 1;
+		n = n + 100;
+		f = f + 1;
 	end
 
 end
